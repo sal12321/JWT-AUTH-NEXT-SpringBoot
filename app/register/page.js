@@ -9,6 +9,7 @@ import Spinner from '../dashboard/loading';
 import NavigationBar from '../nav/page';
 
 export default function Register() {
+  const API_URL = process.env.API_URL ;
 
 
     const [loading, setLoading] = useState(false);
@@ -29,7 +30,7 @@ export default function Register() {
 
 
     try{
-         const response = await fetch('http://localhost:8080/auth/register', {
+         const response = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Must match @RequestBody
@@ -41,9 +42,6 @@ export default function Register() {
       });
 
 
-
-      console.log(response);
-    
             if(response.status != 201){
             setMessage("Error occurred while creating account")
 

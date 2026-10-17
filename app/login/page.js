@@ -10,7 +10,7 @@ import NavigationBar from '../nav/page';
 
 export default function Login() {
 
-  
+const API_URL = process.env.API_URL;
 
 
     const [loading, setLoading] = useState(false);
@@ -31,7 +31,7 @@ export default function Login() {
 
 
     try{
-         let response = await fetch('http://localhost:8080/auth/login', {
+         let response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Must match @RequestBody

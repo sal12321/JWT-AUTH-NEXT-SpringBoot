@@ -5,13 +5,14 @@ import NavigationBar from "../nav/page";
 
 export default function CheckAuth() {
   const [message, setMessage] = useState("");
+  const API_URL = process.env.API_URL;
 
   async function handleSubmit(apiType) {
     setMessage("calling the api...");
 
     if (apiType === "public") {
       try {
-        const response = await fetch("http://localhost:8080/public/hello", {
+        const response = await fetch(`${API_URL}/public/hello`, {
           method: "GET",
         });
         console.log(response);
@@ -36,7 +37,7 @@ export default function CheckAuth() {
 
         const token = localStorage.getItem('token');
 
-      const response = await fetch("http://localhost:8080/me", {
+      const response = await fetch(`${API_URL}/me`, {
         method: "GET",
         headers: {
         'Authorization': `Bearer ${token}` // if authenticated
