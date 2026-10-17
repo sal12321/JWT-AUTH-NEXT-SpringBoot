@@ -28,7 +28,7 @@ export default function CheckAuth() {
           setMessage(message);
                       
         } else {
-          setMessage("in else");
+         setMessage("error occurred");
         }
       } catch (err) {
         setMessage("error occurred");
