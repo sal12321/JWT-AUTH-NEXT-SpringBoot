@@ -1,26 +1,123 @@
-@import "tailwindcss";
-
+/* Human-centered minimal styling */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #fbfbf9;             /* warm, paper-tinted background */
+  --surface: #ffffff;
+  --text-main: #242220;      /* soft graphite, never harsh #000 */
+  --text-muted: #6e6b66;     /* warm stone grey */
+  --border: #e8e6df;         /* tactile, low-contrast divider */
+  --primary: #2d3748;        /* deep slate */
+  --primary-hover: #1a202c;
+  --accent: #d97706;         /* warm amber highlight */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* Card container with a soft, paper-like lift */
+.card {
+  width: 100%;
+  max-width: 400px;
+
+  padding: 2.25rem;
+
+}
+
+/* Typography with natural rhythm */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+p {
+  font-size: 0.935rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+/* Form fields */
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  
+  margin-bottom: 0.35rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  /* border-radius: 8px; */
+  outline: none;
+ 
+  margin-bottom: 1.25rem;
+}
+
+
+
+/* Buttons with tactile weight */
+button, .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.925rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+}
+
+button:active, .btn:active {
+  transform: scale(0.99);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fafaf9;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: #f3f2ee;
+  color: var(--text-main);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background-color: #ebe9e3;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
