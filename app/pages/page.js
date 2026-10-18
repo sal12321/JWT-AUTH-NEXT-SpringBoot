@@ -5,27 +5,22 @@ import NavigationBar from "../nav/page";
 
 export default function CheckAuth() {
   const [message, setMessage] = useState("");
-  const API_URL = process.env.API_URL;
+  const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   async function handleSubmit(apiType) {
     setMessage("calling the api...");
 
     if (apiType === "public") {
       try {
-        const response = await fetch(`${API_URL}/public/hello`, {
+        const response = await fetch(`${NEXT_PUBLIC_API_URL}/public/hello`, {
           method: "GET",
         });
         console.log(response);
 
-        if (response.ok ) // ACCEPTED
+        if (response.status == 202) // ACCEPTED
          {
-           
-          // Convert object to string:
-          const message = response.text();
-                      
 
-
-          setMessage(message);
+          setMessage(response.text());
                       
         } else {
          setMessage("error occurred");
@@ -37,7 +32,7 @@ export default function CheckAuth() {
 
         const token = localStorage.getItem('token');
 
-      const response = await fetch(`${API_URL}/me`, {
+      const response = await fetch(`${NEXT_PUBLIC_API_URL}/me`, {
         method: "GET",
         headers: {
         'Authorization': `Bearer ${token}` // if authenticated

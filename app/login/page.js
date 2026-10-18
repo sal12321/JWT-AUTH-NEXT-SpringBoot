@@ -10,7 +10,7 @@ import NavigationBar from '../nav/page';
 
 export default function Login() {
 
-const API_URL = process.env.API_URL;
+const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 
     const [loading, setLoading] = useState(false);
@@ -31,7 +31,7 @@ const API_URL = process.env.API_URL;
 
 
     try{
-         let response = await fetch(`${API_URL}/auth/login`, {
+         let response = await fetch(`${NEXT_PUBLIC_API_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Must match @RequestBody
@@ -62,7 +62,7 @@ const API_URL = process.env.API_URL;
 
     } catch(err){
 
-       setMessage("couldn't logged in")
+       setMessage("couldn't log in")
 
         
 

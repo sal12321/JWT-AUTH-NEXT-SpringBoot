@@ -9,7 +9,7 @@ import Spinner from '../dashboard/loading';
 import NavigationBar from '../nav/page';
 
 export default function Register() {
-  const API_URL = process.env.API_URL ;
+  const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 
     const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ export default function Register() {
 
 
     try{
-         const response = await fetch(`${API_URL}/auth/register`, {
+         const response = await fetch(`${NEXT_PUBLIC_API_URL}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Must match @RequestBody
