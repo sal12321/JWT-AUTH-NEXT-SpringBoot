@@ -14,6 +14,16 @@ const nextConfig = {
       },
     },
   },
+
+  // Proxy requests from /api/* to your HTTP EC2 backend
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "http://15.252.71.37:8080/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
