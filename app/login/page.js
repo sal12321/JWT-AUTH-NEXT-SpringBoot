@@ -54,17 +54,12 @@ const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
            let token = response.token;
 
            localStorage.setItem('token',token);
-
-            
-
             setMessage("Logged in..")
         }
 
     } catch(err){
 
        setMessage("couldn't log in")
-
-        
 
     } 
 
