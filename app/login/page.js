@@ -31,7 +31,7 @@ const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 
     try{
-         let response = await fetch(`${NEXT_PUBLIC_API_URL}/auth/login`, {
+         let response = await fetch(`/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Must match @RequestBody

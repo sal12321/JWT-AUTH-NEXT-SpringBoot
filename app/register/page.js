@@ -30,7 +30,7 @@ export default function Register() {
 
 
     try{
-         const response = await fetch(`${NEXT_PUBLIC_API_URL}/auth/register`, {
+         const response = await fetch(`/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Must match @RequestBody
