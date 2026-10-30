@@ -46,7 +46,8 @@ export default function Register() {
             setMessage("Error occurred while creating account")
 
       } else{
-setMessage("Account was created")
+setMessage("Account was created");
+        setLoading(false);
       }
 
     } catch(err){
