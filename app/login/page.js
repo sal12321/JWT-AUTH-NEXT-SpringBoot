@@ -28,14 +28,14 @@ const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
     const pass = form.password.value;
 
     console.log("this  is login page")
-    
+
 
     console.log(NEXT_PUBLIC_API_URL);
 
 
 
     try{
-         let response = await fetch(`${NEXT_PUBLIC_API_URL}/public/login`, {
+         let response = await fetch(`/public/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Must match @RequestBody

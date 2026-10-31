@@ -12,7 +12,7 @@ export default function CheckAuth() {
 
     if (apiType === "public") {
       try {
-        const response = await fetch(`${NEXT_PUBLIC_API_URL}/public/hello`, {
+        const response = await fetch(`/public/hello`, {
           method: "GET",
         });
         console.log(response);
@@ -32,7 +32,7 @@ export default function CheckAuth() {
 
         const token = localStorage.getItem('token');
 
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/me`, {
+      const response = await fetch(`/me`, {
         method: "GET",
         headers: {
         'Authorization': `Bearer ${token}` // if authenticated

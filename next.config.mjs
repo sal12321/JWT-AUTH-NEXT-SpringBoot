@@ -24,6 +24,10 @@ const nextConfig = {
         source: "/public/:path*",
         destination: "http://15.252.71.37:8080/public/:path*",
       },
+      {
+        source: "/:path*", 
+        destination: "http://15.252.71.37:8080/:path*",
+      },
     ];
   },
 };
