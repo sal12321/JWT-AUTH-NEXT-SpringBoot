@@ -15,23 +15,19 @@ const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
 
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
+    const[loginBtnTxt, setLoginBtnTxt] = useState("Login")
 
     async function handleSubmit(e){
             e.preventDefault();
             setLoading(true);
             setMessage("");
+            setLoginBtnTxt("Logging...")
 
     
     // getting data form form
     const form = e.target;
     const user = form.username.value;
     const pass = form.password.value;
-
-    console.log("this  is login page")
-
-
-    console.log(NEXT_PUBLIC_API_URL);
-
 
 
     try{
@@ -58,7 +54,7 @@ const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
            let token = response.token;
 
            localStorage.setItem('token',token);
-            setMessage("Logged in..")
+            setLoginBtnTxt("Logged in")
         }
 
     } catch(err){
@@ -89,14 +85,13 @@ const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
         <input id="password" name="password" type="password" required />
       </div>
       <br />
+      {message && <h4 className='postLoginMessage'>  {message}</h4>}
 
       <button type="submit" disabled={loading}>
-        {loading ? 'Submitting...' : 'Login'}
+        {loginBtnTxt}
       </button>
-      <br />
-      <br />
 
-      {message && <p>{message}</p>}
+      
     </form>
     </>
     

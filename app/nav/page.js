@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import "./nav.css"
 
 export default function NavigationBar() {
   return (
-    <nav style={{ display: 'flex', gap: '1rem', padding: '1rem', justifyContent: "center" , gap : "1rem" }}>
+    <nav className='nav'>
       <Link href="/login" className="nav-btn">
         Login
       </Link>
