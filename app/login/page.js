@@ -27,6 +27,10 @@ const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL;
     const user = form.username.value;
     const pass = form.password.value;
 
+    console.log("this  is login page")
+    
+
+    console.log(NEXT_PUBLIC_API_URL);
 
 
 
